@@ -1,6 +1,119 @@
-
 const idArray = [39, 135, 78, 140, 61];
-const xhr = new XMLHttpRequest();
+const season = 2022;
+const twentyFourHours = 86400000;
+const $englandHead = document.querySelector('#england');
+const $italyHead = document.querySelector('#italy');
+const $germanyHead = document.querySelector('#germany');
+const $spainHead = document.querySelector('#spain');
+const $franceHead = document.querySelector('#france');
+const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHead];
+
+window.addEventListener('load', event => {
+  // console.log(twentyFourHours);
+});
+
+function generateBody(arrayOfTeams, leagueIndex) {
+  leagueIndex = 0;
+  const $tableHead = headArray[leagueIndex]; // change this to be any one of the heads for feature 5
+  let leagueData;
+  if (data.leaguesArray[leagueIndex] === null || (Date.now() - data.timeAtUpdate[leagueIndex] > twentyFourHours)) {
+    const standingsXhr = new XMLHttpRequest();
+    standingsXhr.addEventListener('load', event => {
+      data.leaguesArray[leagueIndex] = standingsXhr.response;
+      leagueData = standingsXhr.response;
+      data.timeAtUpdate[leagueIndex] = Date.now();
+    });
+    const standingsString = `https://v3.football.api-sports.io/standings?league=${idArray[leagueIndex]}&season=${season}`;
+    const targetUrl = encodeURIComponent(standingsString);
+    standingsXhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
+
+    standingsXhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+    standingsXhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+
+    standingsXhr.send();
+  } else {
+    leagueData = data.leaguesArray[leagueIndex];
+  }
+  const leagueStandings = leagueData.response.league.standings[0];
+  for (let i = 0; i < leagueStandings.length; i++) {
+    const $newRow = generateRow(leagueStandings[i]);
+    $tableHead.appendChild($newRow);
+  }
+}
+
+function generateRow(leagueObject) {
+  const $row = document.createElement('tr');
+  $row.setAttribute('data-pos', '1');
+  const $position = document.createElement('td');
+  $position.classList.add('position');
+  if (leagueObject.description.slice(12, 28) === 'Champions League') {
+    $position.classList.add('uefa');
+  } else if (leagueObject.description.slice(0, 10) === 'Relegation') {
+    $position.classList.add('relegation');
+  }
+  $row.appendChild($position);
+
+  const $span = document.createElement('span');
+  $span.classList.add('number');
+  $span.innerText = leagueObject.rank;
+  $position.appendChild($span);
+
+  const $logoWrap = document.createElement('div');
+  $logoWrap.classList.add('logo-wrapper');
+  const $logo = document.createElement('img');
+  $logo.setAttribute('src', leagueObject.team.logo);
+  $logo.classList.add('club-logo');
+  $logo.setAttribute('alt', 'team badge');
+  $position.appendChild($logoWrap);
+  $logoWrap.appendChild($logo);
+
+  const $clubName = document.createElement('td');
+  $clubName.classList.add('club');
+  $clubName.innerText = leagueObject.team.name;
+  $row.appendChild($clubName);
+
+  const $pts = document.createElement('td');
+  $pts.classList.add('bolded');
+  $pts.innerText = leagueObject.points;
+  $row.appendChild($pts);
+
+  const $wins = document.createElement('td');
+  $wins.classList.add('results');
+  $wins.innerText = leagueObject.all.win;
+  $row.appendChild($wins);
+
+  const $draws = document.createElement('td');
+  $draws.classList.add('results');
+  $draws.innerText = leagueObject.all.draw;
+  $row.appendChild($draws);
+
+  const $loses = document.createElement('td');
+  $loses.classList.add('results');
+  $loses.innerText = leagueObject.all.lose;
+  $row.appendChild($loses);
+
+  const $mp = document.createElement('td');
+  $mp.innerText = leagueObject.all.played;
+  $row.appendChild($mp);
+
+  const $gf = document.createElement('td');
+  $gf.innerText = leagueObject.all.goals.for;
+  $row.appendChild($gf);
+
+  const $ga = document.createElement('td');
+  $ga.innerText = leagueObject.all.goals.against;
+  $row.appendChild($ga);
+
+  const $gd = document.createElement('td');
+  $gd.innerText = leagueObject.goalsDiff;
+  $row.appendChild($gd);
+
+  return $row;
+}
+
+generateBody();
+// data.timeAtUpdate = [0, 0, 0, 0, 0];
+// const xhr = new XMLHttpRequest();
 
 // const premierLeague2022String =
 //   'https://v3.football.api-sports.io/standings?league=39&season=2022';
@@ -17,21 +130,20 @@ const xhr = new XMLHttpRequest();
 //   manCityCoach
 // );
 
-xhr.responseType = 'json';
-xhr.addEventListener('load', () => {
-  // console.log('xhr is: ', xhr);
-  // console.log('xhr.response is: ', xhr.response);
-  data.coach = xhr.response;
-  if (xhr.response.get === 'standings') {
-    // console.log('Getting standings.');
-    const leagueID = xhr.response.response[0].league.id;
-    data.leaguesArray[idArray.indexOf(leagueID)] = xhr.response;
-  }
-});
+// xhr.addEventListener('load', () => {
+//   // console.log('xhr is: ', xhr);
+//   // console.log('xhr.response is: ', xhr.response);
+//   data.coach = xhr.response;
+//   if (xhr.response.get === 'standings') {
+//     // console.log('Getting standings.');
+//     const leagueID = xhr.response.response[0].league.id;
+//     data.leaguesArray[idArray.indexOf(leagueID)] = xhr.response;
+//   }
+// });
 
 // xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
 
-xhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
-xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+// xhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+// xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
 
 // xhr.send();

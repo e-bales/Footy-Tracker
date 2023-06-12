@@ -15,8 +15,8 @@ let data = {
   // bundesligaTable: null,
   coach: null,
   leaguesArray: [null, null, null, null, null],
-  view: null,
-  timeAtUpdate: null
+  view: 0,
+  timeAtUpdate: [0, 0, 0, 0, 0]
 };
 
 const previousDataJSON = localStorage.getItem('data-storage');

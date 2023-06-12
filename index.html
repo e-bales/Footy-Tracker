@@ -38,7 +38,7 @@
   <main>
     <div class="body-container">
       <div class="table-container">
-        <table data-league="prem">
+        <table>
           <thead>
             <tr>
               <th id="first-header"></th>
@@ -53,7 +53,7 @@
               <th id="last-header">GD</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="england" data-league="0">
             <tr data-pos="1">
               <td class="position uefa"> <span class="number">1</span>
                 <div class="logo-wrapper">
@@ -86,7 +86,18 @@
               <td>43</td>
               <td>45</td>
             </tr>
-            <!-- HERE! -->
+          </tbody>
+          <tbody class="hidden" id="italy" data-league="1" data-generated="false">
+
+          </tbody>
+          <tbody class="hidden" id="germany" data-league="2" data-generated="false">
+
+          </tbody>
+          <tbody class="hidden" id="spain" data-league="3" data-generated="false">
+
+          </tbody>
+          <tbody class="hidden" id="france" data-league="4" data-generated="false">
+
           </tbody>
           <tfoot>
             <tr>
@@ -104,6 +115,26 @@
           </tfoot>
         </table>
       </div>
+      <!-- <div class="table-container">
+        <table class="hidden" id="italy" data-league="italy">
+
+        </table>
+      </div>
+      <div class="table-container">
+        <table class="hidden" id="germany" data-league="germany">
+
+        </table>
+      </div>
+      <div class="table-container">
+        <table class="hidden" id="spain" data-league="spain">
+
+        </table>
+      </div>
+      <div class="table-container">
+        <table class="hidden" id="france" data-league="france">
+
+        </table>
+      </div> -->
     </div>
   </main>
   <script src="js/data.js"></script>
