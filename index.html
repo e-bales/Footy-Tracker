@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -22,18 +22,377 @@
           </div>
           <div class="league-title-wrapper">
             <p>Premier League</p>
-            <i class="fa-solid fa-caret-down"></i>
+            <div class="caret-wrapper">
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
           </div>
         </div>
         <div class="nav-col-half" id="second">
           <div class="league-leaders-wrapper">
-            <a href="#">League Leaders</a>
+            <a href="#">View Leaders</a>
           </div>
         </div>
       </div>
     </div>
   </header>
   <main>
+    <div class="body-container">
+      <div class="table-container">
+        <table data-league="prem">
+          <thead>
+            <tr>
+              <th id="first-header"></th>
+              <th class="club bolded">Club</th>
+              <th class="bolded">Pts</th>
+              <th class="results">W</th>
+              <th class="results">D</th>
+              <th class="results">L</th>
+              <th>MP</th>
+              <th>GF</th>
+              <th>GA</th>
+              <th id="last-header">GD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-pos="1">
+              <td class="position uefa"> <span class="number">1</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Manchester_City_FC_badge.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Manchester City</td>
+              <td class="bolded">89</td>
+              <td class="results">28</td>
+              <td class="results">5</td>
+              <td class="results">5</td>
+              <td>38</td>
+              <td>94</td>
+              <td>33</td>
+              <td>61</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <!-- HERE! -->
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+            <tr data-pos="2">
+              <td class="position"> <span class="number">2</span>
+                <div class="logo-wrapper">
+                  <img class="club-logo" src="images/Arsenal_FC.svg" alt="badge">
+                </div>
+              </td>
+              <td class="club">Arsenal</td>
+              <td class="bolded">84</td>
+              <td class="results">26</td>
+              <td class="results">6</td>
+              <td class="results">6</td>
+              <td>38</td>
+              <td>88</td>
+              <td>43</td>
+              <td>45</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td id="first-footer">.</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td id="last-footer"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

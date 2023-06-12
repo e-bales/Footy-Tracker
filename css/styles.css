@@ -10,6 +10,13 @@ a {
   text-decoration: none;
 }
 
+/* i {
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  color: black;
+} */
+
 .navbar p,
 .navbar a {
   color: #58a9fe;
@@ -18,8 +25,12 @@ a {
 .league-icon-wrapper {
   width: 2rem;
   margin-left: 2rem;
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
   margin-right: 1rem;
+}
+
+.league-title-wrapper {
+  display: flex;
 }
 
 .league-leaders-wrapper {
@@ -30,4 +41,98 @@ a {
   display: flex;
   justify-content: right;
   align-items: center;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.position {
+  display: flex;
+  border-left: solid 0.3rem white;
+}
+
+.uefa {
+  border-left: solid 0.3rem #0c81ff;
+}
+
+.relegation {
+  border-left: solid 0.3rem #dd0c13;
+}
+
+.number {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+}
+
+table {
+  width: 100%;
+
+  /* border: solid black 1px;
+  border-radius: 1rem; */
+
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.club {
+  text-align: left;
+  width: 50%;
+  padding-left: 1rem;
+}
+
+thead {
+  background-color: #e3f2fd;
+}
+
+tfoot {
+  background-color: #e3f2fd;
+}
+
+#first-header {
+  border-top-left-radius: 10px;
+}
+
+#last-header {
+  border-top-right-radius: 10px;
+}
+
+#first-footer {
+  border-bottom-left-radius: 10px;
+  color: #e3f2fd;
+}
+
+#last-footer {
+  border-bottom-right-radius: 10px;
+}
+
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+  width: 2rem;
+  padding: 0.3rem 0;
+}
+
+.results {
+  text-align: center;
+}
+
+.logo-wrapper {
+  width: 1.2rem;
+}
+
+.club-logo {
+  width: 100%;
 }

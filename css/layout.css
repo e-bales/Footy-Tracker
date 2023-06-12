@@ -10,4 +10,9 @@
 .nav-col-half {
   display: flex;
   width: 50%;
+  align-items: center;
+}
+
+header {
+  margin-bottom: 0.5rem;
 }
