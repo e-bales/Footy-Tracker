@@ -58,21 +58,24 @@ a {
 
 .position {
   display: flex;
-  border-left: solid 0.3rem white;
   align-items: center;
+  justify-content: center;
+}
+
+.border {
+  margin-left: 0.3rem;
 }
 
 .uefa {
-  border-left: solid 0.3rem #0c81ff;
+  border-left: solid 0.2rem #0c81ff;
 }
 
 .relegation {
-  border-left: solid 0.3rem #dd0c13;
+  border-left: solid 0.2rem #dd0c13;
 }
 
 .number {
-  margin-right: 0.5rem;
-  margin-left: 1rem;
+  margin-left: 0.1rem;
 }
 
 table {
@@ -84,8 +87,8 @@ table {
 
 .club {
   text-align: left;
-  width: 50%;
-  padding-left: 1rem;
+  width: 37%;
+  padding-left: 0;
 }
 
 tbody tr:nth-child(odd) {
@@ -98,6 +101,10 @@ thead {
 
 tfoot {
   background-color: #e3f2fd;
+}
+
+td {
+  margin: 0.3rem;
 }
 
 #first-header {

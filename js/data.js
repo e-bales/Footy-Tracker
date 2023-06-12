@@ -22,4 +22,9 @@ let data = {
 const previousDataJSON = localStorage.getItem('data-storage');
 if (previousDataJSON !== null) {
   data = JSON.parse(previousDataJSON);
+  for (let i = 0; i < data.leaguesArray.length; i++) {
+    if (data.leaguesArray[i !== null]) {
+      data.leaguesArray[i] = JSON.parse(data.leaguesArray[i]);
+    }
+  }
 }

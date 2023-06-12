@@ -10,12 +10,8 @@ const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHe
 
 window.addEventListener('load', event => {
   // console.log(twentyFourHours);
-});
-
-function generateBody(arrayOfTeams, leagueIndex) {
-  leagueIndex = 0;
-  const $tableHead = headArray[leagueIndex]; // change this to be any one of the heads for feature 5
   let leagueData;
+  const leagueIndex = data.view;
   if (data.leaguesArray[leagueIndex] === null || (Date.now() - data.timeAtUpdate[leagueIndex] > twentyFourHours)) {
     const standingsXhr = new XMLHttpRequest();
     standingsXhr.addEventListener('load', event => {
@@ -29,12 +25,18 @@ function generateBody(arrayOfTeams, leagueIndex) {
 
     standingsXhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
     standingsXhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
-
+    // console.log('xhr sent!');
     standingsXhr.send();
   } else {
     leagueData = data.leaguesArray[leagueIndex];
   }
-  const leagueStandings = leagueData.response.league.standings[0];
+  generateBody(leagueData, leagueIndex);
+});
+
+function generateBody(leagueData, leagueIndex) {
+  leagueIndex = 0;
+  const $tableHead = headArray[leagueIndex]; // change this to be any one of the heads for feature 5
+  const leagueStandings = leagueData.response[0].league.standings[0];
   for (let i = 0; i < leagueStandings.length; i++) {
     const $newRow = generateRow(leagueStandings[i]);
     $tableHead.appendChild($newRow);
@@ -43,13 +45,19 @@ function generateBody(arrayOfTeams, leagueIndex) {
 
 function generateRow(leagueObject) {
   const $row = document.createElement('tr');
-  $row.setAttribute('data-pos', '1');
+  $row.setAttribute('data-pos', leagueObject.rank);
   const $position = document.createElement('td');
   $position.classList.add('position');
-  if (leagueObject.description.slice(12, 28) === 'Champions League') {
-    $position.classList.add('uefa');
-  } else if (leagueObject.description.slice(0, 10) === 'Relegation') {
-    $position.classList.add('relegation');
+  if (leagueObject.description !== null) {
+    if (leagueObject.description.slice(12, 28) === 'Champions League') {
+      $row.classList.add('uefa');
+    } else if (leagueObject.description.slice(0, 10) === 'Relegation') {
+      $row.classList.add('relegation');
+    } else {
+      $row.classList.add('border');
+    }
+  } else {
+    $row.classList.add('border');
   }
   $row.appendChild($position);
 
@@ -58,13 +66,15 @@ function generateRow(leagueObject) {
   $span.innerText = leagueObject.rank;
   $position.appendChild($span);
 
+  const $logoTd = document.createElement('td');
   const $logoWrap = document.createElement('div');
   $logoWrap.classList.add('logo-wrapper');
   const $logo = document.createElement('img');
   $logo.setAttribute('src', leagueObject.team.logo);
   $logo.classList.add('club-logo');
   $logo.setAttribute('alt', 'team badge');
-  $position.appendChild($logoWrap);
+  $logoTd.appendChild($logoWrap);
+  $row.appendChild($logoTd);
   $logoWrap.appendChild($logo);
 
   const $clubName = document.createElement('td');
@@ -111,7 +121,6 @@ function generateRow(leagueObject) {
   return $row;
 }
 
-generateBody();
 // data.timeAtUpdate = [0, 0, 0, 0, 0];
 // const xhr = new XMLHttpRequest();
 
