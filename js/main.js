@@ -1,6 +1,7 @@
 const idArray = [39, 135, 78, 140, 61];
 const season = 2022;
 const twentyFourHours = 86400000;
+const $navBarLogo = document.querySelector('#nav-logo');
 const $englandHead = document.querySelector('#england');
 const $italyHead = document.querySelector('#italy');
 const $germanyHead = document.querySelector('#germany');
@@ -29,6 +30,7 @@ window.addEventListener('load', event => {
     leagueData = data.leaguesArray[leagueIndex];
   }
   generateBody(leagueData, leagueIndex);
+  $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
 });
 
 function generateBody(leagueData, leagueIndex) {

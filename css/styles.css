@@ -14,13 +14,6 @@ a {
   display: none;
 }
 
-/* i {
-  display: inline-block;
-  height: 1rem;
-  width: 1rem;
-  color: black;
-} */
-
 .navbar p,
 .navbar a {
   color: #58a9fe;
@@ -29,8 +22,12 @@ a {
 .league-icon-wrapper {
   width: 2rem;
   margin-left: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   margin-right: 1rem;
+}
+
+#nav-logo {
+  width: 100%;
 }
 
 .league-title-wrapper {
