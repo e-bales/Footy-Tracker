@@ -9,7 +9,6 @@ const $franceHead = document.querySelector('#france');
 const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHead];
 
 window.addEventListener('load', event => {
-  // console.log(twentyFourHours);
   let leagueData;
   const leagueIndex = data.view;
   if (data.leaguesArray[leagueIndex] === null || (Date.now() - data.timeAtUpdate[leagueIndex] > twentyFourHours)) {
@@ -25,7 +24,6 @@ window.addEventListener('load', event => {
 
     standingsXhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
     standingsXhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
-    // console.log('xhr sent!');
     standingsXhr.send();
   } else {
     leagueData = data.leaguesArray[leagueIndex];

@@ -151,3 +151,24 @@ th {
 .club-logo {
   width: 100%;
 }
+
+.box {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.blue {
+  background-color: #0c81ff;
+}
+
+.red {
+  background-color: #dd0c13;
+}
+
+.champions-league,
+.relegated {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.75rem;
+  align-items: center;
+}
