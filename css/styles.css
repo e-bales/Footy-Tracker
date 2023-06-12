@@ -55,6 +55,7 @@ a {
 .position {
   display: flex;
   border-left: solid 0.3rem white;
+  align-items: center;
 }
 
 .uefa {
@@ -72,12 +73,9 @@ a {
 
 table {
   width: 100%;
-
-  /* border: solid black 1px;
-  border-radius: 1rem; */
-
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 0.75rem;
 }
 
 .club {
@@ -135,6 +133,8 @@ th {
 
 .logo-wrapper {
   width: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .club-logo {

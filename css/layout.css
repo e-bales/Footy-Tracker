@@ -20,3 +20,16 @@
 header {
   margin-bottom: 0.5rem;
 }
+
+@media (min-width: 767px) {
+  table {
+    width: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 1rem;
+  }
+
+  td {
+    margin: 0.075rem 0;
+  }
+}
