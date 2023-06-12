@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+}
+
+.col-full {
+  display: flex;
+  width: 100%;
+}
+
+.nav-col-half {
+  display: flex;
+  width: 50%;
+}

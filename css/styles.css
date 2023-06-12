@@ -1,0 +1,33 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.navbar {
+  background-color: #e3f2fd;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar p,
+.navbar a {
+  color: #58a9fe;
+}
+
+.league-icon-wrapper {
+  width: 2rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+}
+
+.league-leaders-wrapper {
+  margin-right: 2rem;
+}
+
+#second {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
