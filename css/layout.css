@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.col-half {
+  display: flex;
+  width: 100%;
+}
+
 .nav-col-half {
   display: flex;
   width: 50%;
@@ -55,5 +60,9 @@ header {
 
   .legend {
     margin-left: 26.2%;
+  }
+
+  .col-half {
+    width: 50%;
   }
 }
