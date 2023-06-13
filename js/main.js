@@ -103,18 +103,22 @@ function generateRow(leagueObject) {
   $row.appendChild($loses);
 
   const $mp = document.createElement('td');
+  $mp.classList.add('results');
   $mp.innerText = leagueObject.all.played;
   $row.appendChild($mp);
 
   const $gf = document.createElement('td');
+  $gf.classList.add('results');
   $gf.innerText = leagueObject.all.goals.for;
   $row.appendChild($gf);
 
   const $ga = document.createElement('td');
+  $ga.classList.add('results');
   $ga.innerText = leagueObject.all.goals.against;
   $row.appendChild($ga);
 
   const $gd = document.createElement('td');
+  $gd.classList.add('results');
   $gd.innerText = leagueObject.goalsDiff;
   $row.appendChild($gd);
 

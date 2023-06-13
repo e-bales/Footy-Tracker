@@ -38,6 +38,13 @@ a {
   margin-right: 2rem;
 }
 
+.caret-wrapper {
+  margin-left: 0.5rem;
+  width: 8px;
+  height: 8px;
+  margin-top: -0.7rem;
+}
+
 #second {
   display: flex;
   justify-content: right;
