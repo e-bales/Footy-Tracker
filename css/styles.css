@@ -1,0 +1,178 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.navbar {
+  background-color: #e3f2fd;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.navbar p,
+.navbar a {
+  color: #58a9fe;
+}
+
+.league-icon-wrapper {
+  width: 2rem;
+  margin-left: 2rem;
+  margin-top: 0.2rem;
+  margin-right: 1rem;
+}
+
+#nav-logo {
+  width: 100%;
+}
+
+.league-title-wrapper {
+  display: flex;
+}
+
+.league-leaders-wrapper {
+  margin-right: 2rem;
+}
+
+.caret-wrapper {
+  margin-left: 0.5rem;
+  width: 8px;
+  height: 8px;
+  margin-top: -0.7rem;
+}
+
+#second {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border {
+  margin-left: 0.3rem;
+}
+
+.uefa {
+  border-left: solid 0.2rem #0c81ff;
+}
+
+.relegation {
+  border-left: solid 0.2rem #dd0c13;
+}
+
+.number {
+  margin-left: 0.1rem;
+}
+
+table {
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 0.75rem;
+}
+
+.club {
+  text-align: left;
+  width: 37%;
+  padding-left: 0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+thead {
+  background-color: #e3f2fd;
+}
+
+tfoot {
+  background-color: #e3f2fd;
+}
+
+td {
+  margin: 0.3rem;
+}
+
+#first-header {
+  border-top-left-radius: 10px;
+}
+
+#last-header {
+  border-top-right-radius: 10px;
+}
+
+#first-footer {
+  border-bottom-left-radius: 10px;
+  color: #e3f2fd;
+}
+
+#last-footer {
+  border-bottom-right-radius: 10px;
+}
+
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+  width: 2rem;
+  padding: 0.3rem 0;
+}
+
+.results {
+  text-align: center;
+}
+
+.logo-wrapper {
+  width: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.club-logo {
+  width: 100%;
+}
+
+.box {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.blue {
+  background-color: #0c81ff;
+}
+
+.red {
+  background-color: #dd0c13;
+}
+
+.champions-league,
+.relegated {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.75rem;
+  align-items: center;
+}

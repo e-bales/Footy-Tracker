@@ -6,13 +6,98 @@
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <div class="navbar">
+      <div class="row">
+        <div class="nav-col-half" id="nav-first">
+          <div class="league-icon-wrapper">
+            <img id="nav-logo" src="images/premier-league-1.svg" alt="league icon" />
+          </div>
+          <div class="league-title-wrapper">
+            <p>Premier League</p>
+          </div>
+          <div class="caret-wrapper">
+            <img src="images/caret-down-solid.svg" alt="down caret">
+          </div>
+        </div>
+        <div class="nav-col-half" id="second">
+          <div class="league-leaders-wrapper">
+            <a href="#">View Leaders</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="body-container">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="first-header"></th>
+              <th></th>
+              <th class="club bolded">Club</th>
+              <th class="bolded">Pts</th>
+              <th class="results">W</th>
+              <th class="results">D</th>
+              <th class="results">L</th>
+              <th class="results">MP</th>
+              <th class="results">GF</th>
+              <th class="results">GA</th>
+              <th id="last-header" class="results">GD</th>
+            </tr>
+          </thead>
+          <tbody id="england" data-league="0">
+          </tbody>
+          <tbody class="hidden" id="italy" data-league="1" data-generated="false">
+          </tbody>
+          <tbody class="hidden" id="germany" data-league="2" data-generated="false">
+          </tbody>
+          <tbody class="hidden" id="spain" data-league="3" data-generated="false">
+          </tbody>
+          <tbody class="hidden" id="france" data-league="4" data-generated="false">
+          </tbody>
+          <tfoot>
+            <tr>
+              <td id="first-footer">.</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td id="last-footer"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="legend">
+        <div class="legend-row">
+          <div class="champions-league">
+            <div class="box blue"></div>
+            <p>= Champions League Qualification</p>
+          </div>
+        </div>
+        <div class="legend-row">
+          <div class="relegated">
+            <div class="box red"></div>
+            <div class="text-wrap">
+              <p>= Relegation Zone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
