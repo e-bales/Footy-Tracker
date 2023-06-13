@@ -39,24 +39,82 @@
     <div class="body-container">
       <div id="team-view" class="team-container">
         <div class="row">
-          <div class="big-logo-wrapper">
-            <img id="team-view-badge" src="images/Manchester_City_FC_badge.svg" alt="team badge">
-          </div>
-          <div class="team-view-name">
-            <h1 id="team-view-name">Manchester City</h1>
+          <div class="col-full">
+            <div class="big-logo-wrapper">
+              <img id="team-view-badge" src="images/Manchester_City_FC_badge.svg" alt="team badge">
+            </div>
+            <div class="team-view-name-wrapper">
+              <h1 id="team-view-name">Manchester City</h1>
+            </div>
           </div>
         </div>
         <div class="row">
           <div id="team-view-1st-col" class="col-half">
-            <div id="team-view-form" class="row">
-
+            <div id="team-view-1st-col-1st-row" class="row">
+              <div id="team-view-form" class="row">
+                <h3>Recent Form: W W W D L</h3>
+              </div>
+              <div id="team-view-form-table">
+                <table>
+                  <tbody>
+                    <tr id="tv-row-form-wins">
+                      <td class="team-view-table-1st-col">Wins:</td>
+                      <td class="team-view-table-2nd-col">28</td>
+                      <td class="team-view-table-3rd-col">(17 home, 11 away)</td>
+                    </tr>
+                    <tr id="tv-row-form-loses">
+                      <td class="team-view-table-1st-col">Loses:</td>
+                      <td class="team-view-table-2nd-col">5</td>
+                      <td class="team-view-table-3rd-col">(1 home, 4 away)</td>
+                    </tr>
+                    <tr id="tv-row-form-draws">
+                      <td class="team-view-table-1st-col">Draws:</td>
+                      <td class="team-view-table-2nd-col">5</td>
+                      <td class="team-view-table-3rd-col">(1 home, 4 away)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div id="team-view-scored" class="row">
-
+            <div class="team-view-1st-col-2nd-row">
+              <div id="team-view-scored" class="row">
+                <h3>Goals Scored:</h3>
+              </div>
+              <table>
+                <tbody>
+                  <tr id="tv-row-scored-home">
+                    <td class="team-view-table-1st-col">Home:</td>
+                    <td class="team-view-table-2nd-col">60</td>
+                    <td class="team-view-table-3rd-col">(avg. 3.2 per game)</td>
+                  </tr>
+                  <tr id="tv-row-scored-away">
+                    <td class="team-view-table-1st-col">Away:</td>
+                    <td class="team-view-table-2nd-col">34</td>
+                    <td class="team-view-table-3rd-col">(avg. 1.8 per game)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div id="team-view-conceded" class="row">
-
+            <div class="team-view-1st-col-3rd-row">
+              <div id="team-view-conceded" class="row">
+                <h3>Goals Conceded:</h3>
+              </div>
+              <table>
+                <tbody>
+                  <tr id="tv-row-conceded-home">
+                    <td class="team-view-table-1st-col">Home:</td>
+                    <td class="team-view-table-2nd-col">17</td>
+                    <td class="team-view-table-3rd-col">(avg. 0.9 per game)</td>
+                  </tr>
+                  <tr id="tv-row-conceded-away">
+                    <td class="team-view-table-1st-col">Away:</td>
+                    <td class="team-view-table-2nd-col">16</td>
+                    <td class="team-view-table-3rd-col">(avg. 0.8 per game)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
           </div>
           <div id="team-view-2nd-col" class="col-half">
             <div id="team-view-coach" class="row">
@@ -71,62 +129,64 @@
           </div>
         </div>
       </div>
-      <div id="table" class="table-container hidden">
-        <table>
-          <thead>
-            <tr>
-              <th id="first-header"></th>
-              <th></th>
-              <th class="club bolded">Club</th>
-              <th class="bolded">Pts</th>
-              <th class="results">W</th>
-              <th class="results">D</th>
-              <th class="results">L</th>
-              <th class="results">MP</th>
-              <th class="results">GF</th>
-              <th class="results">GA</th>
-              <th id="last-header" class="results">GD</th>
-            </tr>
-          </thead>
-          <tbody id="england" data-league="0">
-          </tbody>
-          <tbody class="hidden" id="italy" data-league="1" data-generated="false">
-          </tbody>
-          <tbody class="hidden" id="germany" data-league="2" data-generated="false">
-          </tbody>
-          <tbody class="hidden" id="spain" data-league="3" data-generated="false">
-          </tbody>
-          <tbody class="hidden" id="france" data-league="4" data-generated="false">
-          </tbody>
-          <tfoot>
-            <tr>
-              <td id="first-footer">.</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td id="last-footer"></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <div class="legend">
-        <div class="legend-row">
-          <div class="champions-league">
-            <div class="box blue"></div>
-            <p>= Champions League Qualification</p>
-          </div>
+      <div class="league-view hidden">
+        <div id="table" class="table-container">
+          <table class="main-table">
+            <thead>
+              <tr>
+                <th id="first-header"></th>
+                <th></th>
+                <th class="club bolded">Club</th>
+                <th class="bolded">Pts</th>
+                <th class="results">W</th>
+                <th class="results">D</th>
+                <th class="results">L</th>
+                <th class="results">MP</th>
+                <th class="results">GF</th>
+                <th class="results">GA</th>
+                <th id="last-header" class="results">GD</th>
+              </tr>
+            </thead>
+            <tbody id="england" data-league="0">
+            </tbody>
+            <tbody class="hidden" id="italy" data-league="1" data-generated="false">
+            </tbody>
+            <tbody class="hidden" id="germany" data-league="2" data-generated="false">
+            </tbody>
+            <tbody class="hidden" id="spain" data-league="3" data-generated="false">
+            </tbody>
+            <tbody class="hidden" id="france" data-league="4" data-generated="false">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td id="first-footer">.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="last-footer"></td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
-        <div class="legend-row">
-          <div class="relegated">
-            <div class="box red"></div>
-            <div class="text-wrap">
-              <p>= Relegation Zone</p>
+        <div class="legend">
+          <div class="legend-row">
+            <div class="champions-league">
+              <div class="box blue"></div>
+              <p>= Champions League Qualification</p>
+            </div>
+          </div>
+          <div class="legend-row">
+            <div class="relegated">
+              <div class="box red"></div>
+              <div class="text-wrap">
+                <p>= Relegation Zone</p>
+              </div>
             </div>
           </div>
         </div>

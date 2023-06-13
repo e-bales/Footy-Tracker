@@ -82,7 +82,7 @@ a {
   margin-left: 0.1rem;
 }
 
-table {
+.main-table table {
   width: 100%;
   margin-left: 5%;
   margin-right: 5%;
@@ -95,19 +95,19 @@ table {
   padding-left: 0;
 }
 
-tbody tr:nth-child(odd) {
+.main-table tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 
-thead {
+.main-table thead {
   background-color: #e3f2fd;
 }
 
-tfoot {
+.main-table tfoot {
   background-color: #e3f2fd;
 }
 
-td {
+.main-table td {
   margin: 0.3rem;
 }
 
@@ -128,14 +128,14 @@ td {
   border-bottom-right-radius: 10px;
 }
 
-table,
-th,
-td {
+.main-table table,
+.main-table th,
+.main-table td {
   border: none;
   border-collapse: collapse;
 }
 
-th {
+.main-table th {
   text-align: left;
   font-weight: normal;
   width: 2rem;

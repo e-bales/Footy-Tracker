@@ -9,6 +9,7 @@
 
 .col-half {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -43,14 +44,14 @@ header {
 }
 
 @media (min-width: 767px) {
-  table {
+  table.main-table {
     width: 100%;
     margin-left: 25%;
     margin-right: 25%;
     font-size: 1rem;
   }
 
-  td {
+  .main-table td {
     margin: 0.1rem 0;
   }
 
