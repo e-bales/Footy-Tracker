@@ -1,4 +1,3 @@
-const idArray = [39, 135, 78, 140, 61];
 const season = 2022;
 const twentyFourHours = 86400000;
 const $navBarLogo = document.querySelector('#nav-logo');
@@ -8,6 +7,7 @@ const $germanyHead = document.querySelector('#germany');
 const $spainHead = document.querySelector('#spain');
 const $franceHead = document.querySelector('#france');
 const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHead];
+const idArray = [39, 135, 78, 140, 61];
 
 window.addEventListener('load', event => {
   let leagueData;
