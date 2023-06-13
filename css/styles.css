@@ -82,6 +82,13 @@ a {
   margin-left: 0.1rem;
 }
 
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
 .main-table table {
   width: 100%;
   margin-left: 5%;
@@ -126,13 +133,6 @@ a {
 
 #last-footer {
   border-bottom-right-radius: 10px;
-}
-
-.main-table table,
-.main-table th,
-.main-table td {
-  border: none;
-  border-collapse: collapse;
 }
 
 .main-table th {
