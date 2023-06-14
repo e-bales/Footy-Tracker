@@ -176,3 +176,39 @@ td {
   font-size: 0.75rem;
   align-items: center;
 }
+
+.team-container {
+  margin: auto;
+  width: 70%;
+  margin-top: 2.5rem;
+}
+
+.big-logo-wrapper {
+  width: 12rem;
+}
+
+#team-view-badge {
+  width: 100%;
+}
+
+.table-title {
+  font-weight: normal;
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.team-view-table-1st-col {
+  font-size: 1.25rem;
+}
+
+.team-view-table-2nd-col {
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.25rem;
+  padding-left: 0.5rem;
+}
+
+.team-view-table-3rd-col {
+  font-size: 0.6rem;
+  padding-left: 0.25rem;
+}
