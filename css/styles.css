@@ -89,7 +89,7 @@ td {
   border-collapse: collapse;
 }
 
-.main-table table {
+.main-table {
   width: 100%;
   margin-left: 5%;
   margin-right: 5%;
@@ -136,13 +136,24 @@ td {
 }
 
 .main-table th {
-  text-align: left;
-  font-weight: normal;
   width: 2rem;
   padding: 0.3rem 0;
 }
 
+.main-table th:not(.results) {
+  text-align: left;
+}
+
+.main-table .club:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .results {
+  text-align: center;
+}
+
+th .results {
   text-align: center;
 }
 
@@ -159,6 +170,18 @@ td {
 .box {
   width: 0.5rem;
   height: 0.5rem;
+}
+
+.win {
+  color: #0aa538;
+}
+
+.draw {
+  color: #66757b;
+}
+
+.loss {
+  color: #c00;
 }
 
 .blue {
