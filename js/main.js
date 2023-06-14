@@ -4,6 +4,9 @@ const twentyFourHours = 86400000;
 const $leagueView = document.querySelector('#league-view');
 const $mainTable = document.querySelector('#main-table');
 const $navBarLogo = document.querySelector('#nav-logo');
+const $navBarTitle = document.querySelector('#nav-bar-title');
+const $navBarCaret = document.querySelector('#nav-bar-caret');
+const $navBarLeaders = document.querySelector('#nav-bar-leaders');
 const $englandHead = document.querySelector('#england');
 const $italyHead = document.querySelector('#italy');
 const $germanyHead = document.querySelector('#germany');
@@ -11,6 +14,7 @@ const $spainHead = document.querySelector('#spain');
 const $franceHead = document.querySelector('#france');
 const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHead];
 const idArray = [39, 135, 78, 140, 61];
+const titleArray = ['Premier League', 'Serie A', 'Bundesliga', 'La Liga', 'Ligue 1'];
 
 // TEAM VIEW
 const $teamView = document.querySelector('#team-view');
@@ -66,6 +70,7 @@ const $formation3 = document.querySelector('#formations-3');
 // }
 // League Functions
 window.addEventListener('load', event => {
+  data.currPage = $leagueView;
   let leagueData;
   const leagueIndex = data.view;
   if (data.leaguesArray[leagueIndex] === null || (Date.now() - data.timeAtUpdate[leagueIndex] > twentyFourHours)) {
@@ -258,8 +263,27 @@ function generateTeamView(response) {
   for (let i = 0; i < response.lineups.length && i < 3; i++) {
     formationArray[i].textContent = response.lineups[i].formation.replaceAll('-', ' - ');
   }
+  alterNavBar(response.team.name);
   addHidden($leagueView);
   removeHidden($teamView);
+}
+
+$navBarLogo.addEventListener('click', event => {
+  restoreNavBar();
+  addHidden(data.currPage);
+  removeHidden($leagueView);
+});
+
+function alterNavBar(replacement) {
+  $navBarCaret.classList.add('hidden');
+  $navBarLeaders.classList.add('hidden');
+  $navBarTitle.textContent = replacement;
+}
+
+function restoreNavBar() {
+  $navBarTitle.textContent = titleArray[data.view];
+  $navBarCaret.classList.remove('hidden');
+  $navBarLeaders.classList.remove('hidden');
 }
 
 function addHidden(element) {
@@ -267,5 +291,6 @@ function addHidden(element) {
 }
 
 function removeHidden(element) {
+  data.currPage = element;
   element.classList.remove('hidden');
 }

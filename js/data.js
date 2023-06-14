@@ -1,5 +1,6 @@
 /* exported data */
 window.addEventListener('beforeunload', event => {
+  data.currPage = null;
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('data-storage', dataJSON);
 });
@@ -12,7 +13,8 @@ let data = {
   coach: null,
   leaguesArray: [null, null, null, null, null],
   view: 0,
-  timeAtUpdate: [0, 0, 0, 0, 0]
+  timeAtUpdate: [0, 0, 0, 0, 0],
+  currPage: null
 };
 
 const previousDataJSON = localStorage.getItem('data-storage');

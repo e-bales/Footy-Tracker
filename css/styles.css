@@ -30,6 +30,10 @@ a {
   width: 100%;
 }
 
+#nav-logo:hover {
+  cursor: pointer;
+}
+
 .league-title-wrapper {
   display: flex;
 }
