@@ -1,7 +1,7 @@
 const season = 2022;
 const twentyFourHours = 86400000;
 // League View
-// const $leagueView = document.querySelector('#league-view');
+const $leagueView = document.querySelector('#league-view');
 const $mainTable = document.querySelector('#main-table');
 const $navBarLogo = document.querySelector('#nav-logo');
 const $englandHead = document.querySelector('#england');
@@ -13,7 +13,7 @@ const headArray = [$englandHead, $italyHead, $germanyHead, $spainHead, $franceHe
 const idArray = [39, 135, 78, 140, 61];
 
 // TEAM VIEW
-// const $teamView = document.querySelector('#team-view');
+const $teamView = document.querySelector('#team-view');
 const $tvBadge = document.querySelector('#team-view-badge');
 const $tvName = document.querySelector('#team-view-name');
 
@@ -45,8 +45,8 @@ const $tvConcededAwayDesc = document.querySelector('#tv-row-conceded-away > .tea
 
 // TV Right Column
 
-// const $tvManagerImg = document.querySelector('#coach-img');
-// const $tvManagerName = document.queryCommandValue('#manager-name');
+const $tvManagerImg = document.querySelector('#coach-img');
+const $tvManagerName = document.querySelector('#manager-name');
 
 const $formation1 = document.querySelector('#formations-1');
 const $formation2 = document.querySelector('#formations-2');
@@ -189,7 +189,6 @@ $mainTable.addEventListener('click', event => {
     const request = `https://v3.football.api-sports.io/teams/statistics?league=${idArray[data.view]}&season=${season}&team=${teamID}`;
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', event => {
-      // console.log('Team response is: ', xhr.response);
       generateTeamView(xhr.response);
     });
     const targetUrl = encodeURIComponent(request);
@@ -197,20 +196,27 @@ $mainTable.addEventListener('click', event => {
     xhr.responseType = 'json';
     xhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
     xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
-    // xhr.send();
-    generateTeamView('lol remove this later');
+    xhr.send();
   }
 
 });
 
-$tvBadge.addEventListener('click', event => {
-  generateTeamView('lol remove this later');
-});
-
 function generateTeamView(response) {
-  // response = response.response; USE THIS!
-  response = data.singleTeam.response;
-  // console.log(response);
+  response = response.response;
+  // response = data.singleTeam.response;
+  const xhr = new XMLHttpRequest();
+  const request = `https://v3.football.api-sports.io/coachs?team=${response.team.id}`;
+  const targetUrl = encodeURIComponent(request);
+  xhr.addEventListener('load', event => {
+    $tvManagerImg.setAttribute('src', xhr.response.response[0].photo);
+    const name = `${xhr.response.response[0].name}`;
+    $tvManagerName.textContent = name;
+  });
+  xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+  xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+  xhr.send();
   $tvBadge.setAttribute('src', response.team.logo);
   $tvName.textContent = response.team.name;
   $tvForm.innerText = 'Recent Form: ';
@@ -248,7 +254,18 @@ function generateTeamView(response) {
   $tvConcededHomeDesc.textContent = `(avg. ${response.goals.against.average.home} per game)`;
   $tvConcededAwayDesc.textContent = `(avg. ${response.goals.against.average.away} per game)`;
 
-  $formation1.textContent = response.lineups[0].formation.replaceAll('-', ' - ');
-  $formation2.textContent = response.lineups[1].formation.replaceAll('-', ' - ');
-  $formation3.textContent = response.lineups[2].formation.replaceAll('-', ' - ');
+  const formationArray = [$formation1, $formation2, $formation3];
+  for (let i = 0; i < response.lineups.length && i < 3; i++) {
+    formationArray[i].textContent = response.lineups[i].formation.replaceAll('-', ' - ');
+  }
+  addHidden($leagueView);
+  removeHidden($teamView);
+}
+
+function addHidden(element) {
+  element.classList.add('hidden');
+}
+
+function removeHidden(element) {
+  element.classList.remove('hidden');
 }
