@@ -205,10 +205,7 @@ td {
 }
 
 .tv-caret-wrapper {
-  display: flex;
-  align-items: center;
-  width: 0.4rem;
-  margin-top: 1rem;
+  display: none;
 }
 
 #tv-right-caret {
@@ -229,7 +226,7 @@ td {
 }
 
 .team-view-table-1st-col {
-  padding-left: 1rem;
+  padding-left: 0.6rem;
 }
 
 .team-view-table-2nd-col {
@@ -286,6 +283,17 @@ td {
   margin-bottom: 0.1rem;
 }
 
+#team-view-button {
+  display: flex;
+  justify-content: center;
+}
+
+#view-squad-button {
+  background-color: #e3f2fd;
+  color: #58a9fe;
+  border: solid 2px #58a9fe;
+}
+
 @media (min-width: 767px) {
   .big-logo-wrapper {
     width: 12rem;
@@ -299,6 +307,13 @@ td {
     font-size: 3rem;
   }
 
+  .tv-caret-wrapper {
+    display: flex;
+    align-items: center;
+    width: 0.4rem;
+    margin-top: 1rem;
+  }
+
   .table-title {
     font-size: 1.75rem;
   }
@@ -306,6 +321,10 @@ td {
   .team-view-table-1st-col,
   .team-view-table-2nd-col {
     font-size: 1.25rem;
+  }
+
+  .team-view-table-1st-col {
+    padding-left: 1rem;
   }
 
   #team-view-2nd-col {
