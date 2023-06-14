@@ -177,12 +177,6 @@ td {
   align-items: center;
 }
 
-.team-container {
-  margin: auto;
-  width: 70%;
-  margin-top: 2.5rem;
-}
-
 .big-logo-wrapper {
   width: 12rem;
 }
@@ -191,14 +185,45 @@ td {
   width: 100%;
 }
 
+.team-view-name-wrapper {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-left: 2rem;
+}
+
+.tv-caret-wrapper {
+  display: flex;
+  align-items: center;
+  width: 0.4rem;
+  margin-top: 1rem;
+}
+
+#team-view-form {
+  display: flex;
+  align-items: center;
+}
+
+#tv-right-caret {
+  width: 100%;
+}
+
+#team-view-name {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
 .table-title {
   font-weight: normal;
   margin-bottom: 0.25rem;
-  font-size: 1.25rem;
+  margin-top: 1.25rem;
+  margin-left: 0.5rem;
+  font-size: 1.75rem;
 }
 
 .team-view-table-1st-col {
   font-size: 1.25rem;
+  padding-left: 1rem;
 }
 
 .team-view-table-2nd-col {
@@ -210,5 +235,6 @@ td {
 
 .team-view-table-3rd-col {
   font-size: 0.6rem;
-  padding-left: 0.25rem;
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
 }

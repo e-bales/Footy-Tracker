@@ -43,6 +43,12 @@ header {
   margin-top: 0.6rem;
 }
 
+.team-container {
+  margin: auto;
+  width: 65%;
+  margin-top: 2.5rem;
+}
+
 @media (min-width: 767px) {
   table.main-table {
     width: 100%;
