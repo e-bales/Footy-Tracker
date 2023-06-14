@@ -221,15 +221,18 @@ td {
   font-size: 1.75rem;
 }
 
+.team-view-table-1st-col,
+.team-view-table-2nd-col {
+  font-size: 1rem;
+}
+
 .team-view-table-1st-col {
-  font-size: 1.25rem;
   padding-left: 1rem;
 }
 
 .team-view-table-2nd-col {
   font-weight: bold;
   text-align: right;
-  font-size: 1.25rem;
   padding-left: 0.5rem;
 }
 
@@ -237,4 +240,19 @@ td {
   font-size: 0.6rem;
   padding-left: 0.5rem;
   padding-top: 0.3rem;
+}
+
+.coach-img-wrapper {
+  width: 6rem;
+}
+
+#coach-img {
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .team-view-table-1st-col,
+  .team-view-table-2nd-col {
+    font-size: 1.25rem;
+  }
 }

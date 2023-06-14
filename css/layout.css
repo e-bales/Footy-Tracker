@@ -45,8 +45,13 @@ header {
 
 .team-container {
   margin: auto;
-  width: 65%;
+  width: 80%;
   margin-top: 2.5rem;
+}
+
+.tv-row {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 767px) {
@@ -71,5 +76,15 @@ header {
 
   .col-half {
     width: 50%;
+  }
+
+  .team-container {
+    margin: auto;
+    width: 65%;
+    margin-top: 2.5rem;
+  }
+
+  .tv-row {
+    flex-direction: row;
   }
 }
