@@ -178,7 +178,9 @@ td {
 }
 
 .big-logo-wrapper {
-  width: 12rem;
+  display: flex;
+  align-items: center;
+  width: 5rem;
 }
 
 #team-view-badge {
@@ -189,7 +191,17 @@ td {
   display: flex;
   align-items: center;
   width: 30%;
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+
+#team-view-form {
+  display: flex;
+  align-items: center;
+}
+
+#team-view-name {
+  font-size: 1.75rem;
+  font-weight: normal;
 }
 
 .tv-caret-wrapper {
@@ -199,18 +211,8 @@ td {
   margin-top: 1rem;
 }
 
-#team-view-form {
-  display: flex;
-  align-items: center;
-}
-
 #tv-right-caret {
   width: 100%;
-}
-
-#team-view-name {
-  font-size: 3rem;
-  font-weight: normal;
 }
 
 .table-title {
@@ -218,7 +220,7 @@ td {
   margin-bottom: 0.25rem;
   margin-top: 1.25rem;
   margin-left: 0.5rem;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .team-view-table-1st-col,
@@ -242,17 +244,65 @@ td {
   padding-top: 0.3rem;
 }
 
+#team-view-coach {
+  padding-top: 1rem;
+}
+
 .coach-img-wrapper {
-  width: 6rem;
+  width: 8rem;
+  padding-top: 1rem;
 }
 
 #coach-img {
   width: 100%;
 }
 
+.coach-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.coach-name-wrapper > h1 {
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+.coach-name-wrapper > h3 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
 @media (min-width: 767px) {
+  .big-logo-wrapper {
+    width: 12rem;
+  }
+
+  .team-view-name-wrapper {
+    margin-left: 2rem;
+  }
+
+  #team-view-name {
+    font-size: 3rem;
+  }
+
+  .table-title {
+    font-size: 1.75rem;
+  }
+
   .team-view-table-1st-col,
   .team-view-table-2nd-col {
     font-size: 1.25rem;
+  }
+
+  #team-view-2nd-col {
+    margin-left: 4rem;
+  }
+
+  #team-view-coach {
+    padding-top: 0;
   }
 }
