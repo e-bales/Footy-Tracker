@@ -16,7 +16,7 @@ a {
 
 .navbar p,
 .navbar a {
-  color: #58a9fe;
+  color: #007bff;
 }
 
 .league-icon-wrapper {
@@ -274,7 +274,7 @@ td {
 }
 
 .formations-wrapper {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .formations-wrapper > p {
@@ -290,8 +290,17 @@ td {
 
 #view-squad-button {
   background-color: #e3f2fd;
-  color: #58a9fe;
-  border: solid 2px #58a9fe;
+  color: #007bff;
+  border: solid 3px #007bff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#view-squad-button:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 767px) {
@@ -337,5 +346,9 @@ td {
 
   .formations-wrapper {
     padding-top: 0.75rem;
+  }
+
+  #team-view-button {
+    justify-content: left;
   }
 }
