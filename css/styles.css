@@ -245,7 +245,7 @@ td {
 }
 
 #team-view-coach {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .coach-img-wrapper {
@@ -276,6 +276,16 @@ td {
   font-weight: normal;
 }
 
+.formations-wrapper {
+  padding-top: 2rem;
+}
+
+.formations-wrapper > p {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+}
+
 @media (min-width: 767px) {
   .big-logo-wrapper {
     width: 12rem;
@@ -299,10 +309,14 @@ td {
   }
 
   #team-view-2nd-col {
-    margin-left: 4rem;
+    margin-left: 6rem;
   }
 
   #team-view-coach {
     padding-top: 0;
+  }
+
+  .formations-wrapper {
+    padding-top: 0.75rem;
   }
 }
