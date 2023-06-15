@@ -7,6 +7,7 @@ const $navBarLogo = document.querySelector('#nav-logo');
 const $navBarTitle = document.querySelector('#nav-bar-title');
 // const $navBarTitleWrap = document.querySelector('#nav-bar-title-wrap');
 const $navBarDropdownWrap = document.querySelector('#league-dropdown-wrapper');
+const $selectDropdown = document.querySelector('#league-dropdown');
 // const $navBarCaret = document.querySelector('#nav-bar-caret');
 const $navBarLeaders = document.querySelector('#nav-bar-leaders');
 const $englandHead = document.querySelector('#england');
@@ -521,3 +522,6 @@ $navBarLeaders.addEventListener('click', event => {
 //   $navBarCaret.classList.add('hidden');
 //   $navBarDropdownWrap.classList.remove('hidden');
 // });
+$selectDropdown.addEventListener('change', event => {
+  // console.log(event.target.value);
+});
