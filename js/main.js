@@ -25,7 +25,6 @@ const $tvName = document.querySelector('#team-view-name');
 const $tvForm = document.querySelector('#team-view-recent-form');
 const $tvWins = document.querySelector('#tv-row-form-wins > .team-view-table-2nd-col');
 const $tvWinsDesc = document.querySelector('#tv-row-form-wins > .team-view-table-3rd-col');
-// console.log('Wins: ', $tvWins.textContent);
 
 const $tvLoses = document.querySelector('#tv-row-form-loses > .team-view-table-2nd-col');
 const $tvLosesDesc = document.querySelector('#tv-row-form-loses > .team-view-table-3rd-col');
