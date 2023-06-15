@@ -56,18 +56,6 @@ const $formation1 = document.querySelector('#formations-1');
 const $formation2 = document.querySelector('#formations-2');
 const $formation3 = document.querySelector('#formations-3');
 
-// function callXHR(requestString) {
-//   const xhr = new XMLHttpRequest();
-//   let responseData;
-//   xhr.addEventListener('load', event => {
-//     responseData = xhr.response;
-//   });
-//   const targetUrl = encodeURIComponent(requestString);
-//   xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
-//   xhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
-//   xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
-//   xhr.send();
-// }
 // League Functions
 window.addEventListener('load', event => {
   data.currPage = $leagueView;
@@ -208,7 +196,6 @@ $mainTable.addEventListener('click', event => {
 
 function generateTeamView(response) {
   response = response.response;
-  // response = data.singleTeam.response;
   const xhr = new XMLHttpRequest();
   const request = `https://v3.football.api-sports.io/coachs?team=${response.team.id}`;
   const targetUrl = encodeURIComponent(request);
@@ -244,7 +231,7 @@ function generateTeamView(response) {
   $tvLoses.textContent = response.fixtures.loses.total;
   $tvLosesDesc.textContent = `(${response.fixtures.loses.home} home, ${response.fixtures.loses.away} away)`;
 
-  $tvDraws.textContent = response.fixtures.loses.total;
+  $tvDraws.textContent = response.fixtures.draws.total;
   $tvDrawsDesc.textContent = `(${response.fixtures.draws.home} home, ${response.fixtures.draws.away} away)`;
 
   $tvScoredHome.textContent = response.goals.for.total.home;
