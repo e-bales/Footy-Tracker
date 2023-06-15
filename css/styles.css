@@ -331,6 +331,62 @@ th .results {
   cursor: pointer;
 }
 
+.squad-view-container {
+  margin: auto;
+  width: 90%;
+}
+
+#squad-view h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+#squad-view h3 {
+  font-weight: normal;
+}
+
+.sv-player-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.sv-player-box {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-img-wrapper {
+  width: 9.5rem;
+}
+
+.sv-player-img {
+  width: 100%;
+}
+
+.player-info-wrapper {
+  display: flex;
+  align-items: end;
+  margin-top: -1.5rem;
+}
+
+.sv-name-wrapper {
+  margin-left: 0.5rem;
+}
+
+.sv-player-name {
+  font-size: 1.25rem;
+}
+
+.sv-player-number {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #a0a0a0;
+}
+
 @media (min-width: 767px) {
   .big-logo-wrapper {
     width: 12rem;
@@ -378,5 +434,18 @@ th .results {
 
   #team-view-button {
     justify-content: left;
+  }
+
+  .squad-view-container {
+    width: 70%;
+  }
+
+  #squad-view h1 {
+    font-size: 2.5rem;
+  }
+
+  .sv-player-box {
+    width: 25%;
+    align-items: start;
   }
 }
