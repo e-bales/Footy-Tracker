@@ -65,6 +65,11 @@ const $attackers = document.querySelector('#sv-attackers');
 const positionStringArray = ['Goalkeeper', 'Defender', 'Midfielder', 'Attacker'];
 const positionArray = [$goalkeepers, $defenders, $midfielders, $attackers];
 
+// Leader View
+// const $leaderView = document.querySelector('#leader-view');
+// const $topScorers = document.querySelector('#lv-scorers');
+// const $topAssisters = document.querySelector('#lv-assisters');
+
 // League Functions
 window.addEventListener('load', event => {
   data.currPage = $leagueView;
@@ -375,3 +380,86 @@ function deleteSquadView() { // called in NavBar event listener
     playerBoxes[i].remove();
   }
 }
+
+// Leader View Functions
+function generateLeader(playerObj, playerType) {
+  playerObj = data.top5scorers;
+  const $playerBox = document.createElement('div');
+  $playerBox.classList.add('lv-player-box');
+
+  const $imgWrap = document.createElement('div');
+  $imgWrap.classList.add('player-img-wrapper lv-img');
+  $playerBox.appendChild($imgWrap);
+
+  const $playerImg = document.createElement('img');
+  $playerImg.setAttribute('src', playerObj.player.photo);
+  $playerImg.classList.add('lv-player-img');
+  $playerImg.setAttribute('alt', 'Player Image');
+  $imgWrap.appendChild($playerImg);
+
+  const $infoWrap = document.createElement('div');
+  $infoWrap.classList.add('lv-player-info-wrapper');
+  $playerBox.appendChild($infoWrap);
+
+  const $logoWrap = document.createElement('div');
+  $logoWrap.classList.add('lv-logo-wrapper');
+  $infoWrap.appendChild($logoWrap);
+  const $logo = document.createElement('img');
+  $logo.setAttribute('src', playerObj.statistics[0].team.logo);
+  $logo.setAttribute('alt', 'Team Logo');
+  $logo.classList.add('lv-logo');
+  $logoWrap.appendChild($logo);
+
+  const $nameWrap = document.createElement('div');
+  $nameWrap.classList.add('lv-name-wrapper');
+  $infoWrap.appendChild($nameWrap);
+  const $playerName = document.createElement('h3');
+  $playerName.classList.add('lv-player-name');
+  $playerName.textContent = playerObj.player.name;
+  $nameWrap.appendChild($playerName);
+
+  const $statsWrap = document.createElement('div');
+  $statsWrap.classList.add('lv-player-info-wrapper-stats');
+  $playerBox.appendChild($statsWrap);
+
+  const $smallStats = document.createElement('div');
+  $smallStats.classList.add('lv-stats-wrapper');
+  $statsWrap.appendChild($smallStats);
+
+  const $goals = document.createElement('h4');
+  $goals.textContent = 'Goals: &nbsp;';
+  const $span1 = document.createElement('span');
+  $span1.classList.add('bolded');
+  $span1.textContent = playerObj.statistics[0].goals.total;
+  $goals.appendChild($span1);
+  $smallStats.appendChild($goals);
+
+  const $assists = document.createElement('h4');
+  $assists.textContent = 'Assists: &nbsp;';
+  const $span2 = document.createElement('span');
+  $span2.textContent = playerObj.statistics[0].goals.assists;
+  $span2.classList.add('bolded');
+  $smallStats.appendChild($span2);
+
+  const $extraInfoWrap = document.createElement('div');
+  $extraInfoWrap.classList.add('lv-stats-wrapper', 'lv-contribution-wrapper');
+  $statsWrap.appendChild($extraInfoWrap);
+  const $extraInfo = document.createElement('h4');
+  const $span3 = document.createElement('span');
+  $span3.classList.add('bolded');
+  if (playerType) {
+    $extraInfo.textContent = 'Goals per 90: &nbsp;';
+    $span3.textContent = playerObj.statistics[0].goals.total * 90 / playerObj.statistics[0].games.minutes;
+  } else {
+    $extraInfo.textContent = 'Key Passes: &nbsp;';
+    $span3.textContent = playerObj.statistics[0].passes.key;
+  }
+  $extraInfoWrap.appendChild($extraInfo);
+  $extraInfo.appendChild($span3);
+
+  return $playerBox;
+}
+
+$navBarLeaders.addEventListener('click', event => {
+  generateLeader('test', 'test2');
+});
