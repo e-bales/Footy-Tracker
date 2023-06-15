@@ -364,6 +364,9 @@ function generateSquad(response) {
 
   for (let i = 0; i < squadArray.length; i++) {
     const playerObj = squadArray[i];
+    if (playerObj.number === null) {
+      continue;
+    }
     const position = playerObj.position;
     const playerElement = generatePlayer(playerObj);
     positionArray[positionStringArray.indexOf(position)].appendChild(playerElement);
@@ -376,12 +379,3 @@ function deleteSquadView() { // called in NavBar event listener
     playerBoxes[i].remove();
   }
 }
-
-const $testClick = document.querySelector('#test-clicker');
-$testClick.addEventListener('click', event => {
-  generateSquad('some string');
-});
-const $deleteTest = document.querySelector('#delete-test');
-$deleteTest.addEventListener('click', event => {
-  deleteSquadView();
-});
