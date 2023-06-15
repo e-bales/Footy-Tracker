@@ -67,8 +67,8 @@ const positionArray = [$goalkeepers, $defenders, $midfielders, $attackers];
 
 // Leader View
 const $leaderView = document.querySelector('#leader-view');
-// const $topScorers = document.querySelector('#lv-scorers');
-// const $topAssisters = document.querySelector('#lv-assisters');
+const $topScorers = document.querySelector('#lv-scorers');
+const $topAssisters = document.querySelector('#lv-assisters');
 
 // League Functions
 window.addEventListener('load', event => {
@@ -384,13 +384,25 @@ function deleteSquadView() { // called in NavBar event listener
 }
 
 // Leader View Functions
+function generateLeagueLeaders(scorerResponse, assisterResponse) {
+  const numGenerated = 6;
+  for (let i = 0; i < numGenerated; i++) {
+    const $playerObj = generateLeader(scorerResponse.response[i], true);
+    $topScorers.appendChild($playerObj);
+  }
+  for (let i = 0; i < numGenerated; i++) {
+    const $playerObj = generateLeader(assisterResponse.response[i], false);
+    $topAssisters.appendChild($playerObj);
+  }
+}
+
 function generateLeader(playerObj, playerType) {
-  playerObj = data.top5scorers;
+  // console.log('player Obj is: ', playerObj);
   const $playerBox = document.createElement('div');
   $playerBox.classList.add('lv-player-box');
 
   const $imgWrap = document.createElement('div');
-  $imgWrap.classList.add('player-img-wrapper lv-img');
+  $imgWrap.classList.add('player-img-wrapper', 'lv-img');
   $playerBox.appendChild($imgWrap);
 
   const $playerImg = document.createElement('img');
@@ -429,7 +441,7 @@ function generateLeader(playerObj, playerType) {
   $statsWrap.appendChild($smallStats);
 
   const $goals = document.createElement('h4');
-  $goals.textContent = 'Goals: &nbsp;';
+  $goals.textContent = 'Goals: ';
   const $span1 = document.createElement('span');
   $span1.classList.add('bolded');
   $span1.textContent = playerObj.statistics[0].goals.total;
@@ -437,11 +449,12 @@ function generateLeader(playerObj, playerType) {
   $smallStats.appendChild($goals);
 
   const $assists = document.createElement('h4');
-  $assists.textContent = 'Assists: &nbsp;';
+  $assists.textContent = 'Assists: ';
   const $span2 = document.createElement('span');
   $span2.textContent = playerObj.statistics[0].goals.assists;
   $span2.classList.add('bolded');
-  $smallStats.appendChild($span2);
+  $assists.appendChild($span2);
+  $smallStats.appendChild($assists);
 
   const $extraInfoWrap = document.createElement('div');
   $extraInfoWrap.classList.add('lv-stats-wrapper', 'lv-contribution-wrapper');
@@ -450,10 +463,10 @@ function generateLeader(playerObj, playerType) {
   const $span3 = document.createElement('span');
   $span3.classList.add('bolded');
   if (playerType) {
-    $extraInfo.textContent = 'Goals per 90: &nbsp;';
-    $span3.textContent = playerObj.statistics[0].goals.total * 90 / playerObj.statistics[0].games.minutes;
+    $extraInfo.textContent = 'Goals per 90: ';
+    $span3.textContent = Math.round((playerObj.statistics[0].goals.total * 90 / playerObj.statistics[0].games.minutes) * 100) / 100;
   } else {
-    $extraInfo.textContent = 'Key Passes: &nbsp;';
+    $extraInfo.textContent = 'Key Passes: ';
     $span3.textContent = playerObj.statistics[0].passes.key;
   }
   $extraInfoWrap.appendChild($extraInfo);
@@ -470,5 +483,31 @@ function deleteLeadersView() { // called in NavBar event listener
 }
 
 $navBarLeaders.addEventListener('click', event => {
-  generateLeader('test', 'test2');
+  // console.log('clicked league leaders!');
+  const xhr1 = new XMLHttpRequest();
+  const request = `https://v3.football.api-sports.io/players/topscorers?league=${idArray[data.view]}&season=${season}`;
+  const targetUrl = encodeURIComponent(request);
+  xhr1.addEventListener('load', event => {
+    // console.log('xhr1 response: ', xhr1.response);
+    const xhr2 = new XMLHttpRequest();
+    const request2 = `https://v3.football.api-sports.io/players/topassists?league=${idArray[data.view]}&season=${season}`;
+    const targetUrl2 = encodeURIComponent(request2);
+    xhr2.addEventListener('load', event => {
+      // console.log('xhr2 response: ', xhr2.response);
+      generateLeagueLeaders(xhr1.response, xhr2.response);
+      addHidden(data.currPage);
+      // alterNavBar
+      removeHidden($leaderView);
+    });
+    xhr2.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl2);
+    xhr2.responseType = 'json';
+    xhr2.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+    xhr2.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+    xhr2.send();
+  });
+  xhr1.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
+  xhr1.responseType = 'json';
+  xhr1.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+  xhr1.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+  xhr1.send();
 });
