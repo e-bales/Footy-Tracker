@@ -303,6 +303,7 @@ $squadButton.addEventListener('click', event => {
   xhr.addEventListener('load', event => {
     generateSquad(xhr.response);
     addHidden($teamView);
+    alterNavBar($navBarTitle.textContent + ' Squad');
     removeHidden($squadView);
   });
   xhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
