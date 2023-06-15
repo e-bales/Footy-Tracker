@@ -5,6 +5,8 @@ const $leagueView = document.querySelector('#league-view');
 const $mainTable = document.querySelector('#main-table');
 const $navBarLogo = document.querySelector('#nav-logo');
 const $navBarTitle = document.querySelector('#nav-bar-title');
+// const $navBarTitleWrap = document.querySelector('#nav-bar-title-wrap');
+const $navBarDropdownWrap = document.querySelector('#league-dropdown-wrapper');
 const $navBarCaret = document.querySelector('#nav-bar-caret');
 const $navBarLeaders = document.querySelector('#nav-bar-leaders');
 const $englandHead = document.querySelector('#england');
@@ -93,6 +95,7 @@ window.addEventListener('load', event => {
     leagueData = data.leaguesArray[leagueIndex];
   }
   generateBody(leagueData, leagueIndex);
+  $englandHead.dataset.generated = 'true';
   $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
 });
 
@@ -506,4 +509,11 @@ $navBarLeaders.addEventListener('click', event => {
   xhr1.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
   xhr1.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
   xhr1.send();
+});
+
+// Change Views Functions
+$navBarCaret.addEventListener('click', event => {
+  $navBarTitle.classList.add('hidden');
+  $navBarCaret.classList.add('hidden');
+  $navBarDropdownWrap.classList.remove('hidden');
 });

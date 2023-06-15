@@ -461,6 +461,18 @@ th .results {
   margin-top: -2.5rem;
 }
 
+.league-dropdown-wrapper {
+  /* position: relative; */
+
+  /* width: 2rem;
+  background-color: #0aa538; */
+}
+
+#league-dropdown {
+  width: 8rem;
+  background-color: #f9f9f9;
+}
+
 @media (min-width: 767px) {
   .big-logo-wrapper {
     width: 12rem;
