@@ -16,7 +16,7 @@ a {
 
 .navbar p,
 .navbar a {
-  color: #58a9fe;
+  color: #007bff;
 }
 
 .league-icon-wrapper {
@@ -28,6 +28,10 @@ a {
 
 #nav-logo {
   width: 100%;
+}
+
+#nav-logo:hover {
+  cursor: pointer;
 }
 
 .league-title-wrapper {
@@ -82,7 +86,14 @@ a {
   margin-left: 0.1rem;
 }
 
-table {
+table,
+th,
+td {
+  border: none;
+  border-collapse: collapse;
+}
+
+.main-table {
   width: 100%;
   margin-left: 5%;
   margin-right: 5%;
@@ -95,19 +106,19 @@ table {
   padding-left: 0;
 }
 
-tbody tr:nth-child(odd) {
+.main-table tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 
-thead {
+.main-table thead {
   background-color: #e3f2fd;
 }
 
-tfoot {
+.main-table tfoot {
   background-color: #e3f2fd;
 }
 
-td {
+.main-table td {
   margin: 0.3rem;
 }
 
@@ -128,21 +139,25 @@ td {
   border-bottom-right-radius: 10px;
 }
 
-table,
-th,
-td {
-  border: none;
-  border-collapse: collapse;
-}
-
-th {
-  text-align: left;
-  font-weight: normal;
+.main-table th {
   width: 2rem;
   padding: 0.3rem 0;
 }
 
+.main-table th:not(.results) {
+  text-align: left;
+}
+
+.main-table .club:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .results {
+  text-align: center;
+}
+
+th .results {
   text-align: center;
 }
 
@@ -161,6 +176,18 @@ th {
   height: 0.5rem;
 }
 
+.win {
+  color: #0aa538;
+}
+
+.draw {
+  color: #66757b;
+}
+
+.loss {
+  color: #c00;
+}
+
 .blue {
   background-color: #0c81ff;
 }
@@ -175,4 +202,181 @@ th {
   flex-direction: row;
   font-size: 0.75rem;
   align-items: center;
+}
+
+.big-logo-wrapper {
+  display: flex;
+  align-items: center;
+  width: 5rem;
+}
+
+#team-view-badge {
+  width: 100%;
+}
+
+.team-view-name-wrapper {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-left: 1rem;
+}
+
+#team-view-form {
+  display: flex;
+  align-items: center;
+}
+
+#team-view-name {
+  font-size: 1.75rem;
+  font-weight: normal;
+}
+
+.tv-caret-wrapper {
+  display: none;
+}
+
+#tv-right-caret {
+  width: 100%;
+}
+
+.table-title {
+  font-weight: normal;
+  margin-bottom: 0.25rem;
+  margin-top: 1.25rem;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.team-view-table-1st-col,
+.team-view-table-2nd-col {
+  font-size: 1rem;
+}
+
+.team-view-table-1st-col {
+  padding-left: 0.6rem;
+}
+
+.team-view-table-2nd-col {
+  font-weight: bold;
+  text-align: right;
+  padding-left: 0.5rem;
+}
+
+.team-view-table-3rd-col {
+  font-size: 0.6rem;
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+}
+
+#team-view-coach {
+  padding-top: 2rem;
+}
+
+.coach-img-wrapper {
+  width: 8rem;
+  padding-top: 1rem;
+}
+
+#coach-img {
+  width: 100%;
+}
+
+.coach-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.coach-name-wrapper > h1 {
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+.coach-name-wrapper > h3 {
+  margin-top: 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+.formations-wrapper {
+  padding-top: 1rem;
+}
+
+.formations-wrapper > p {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.1rem;
+}
+
+#team-view-button {
+  display: flex;
+  justify-content: center;
+}
+
+#view-squad-button {
+  background-color: #e3f2fd;
+  color: #007bff;
+  border: solid 3px #007bff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#view-squad-button:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 767px) {
+  .big-logo-wrapper {
+    width: 12rem;
+  }
+
+  .team-view-name-wrapper {
+    margin-left: 2rem;
+  }
+
+  #team-view-name {
+    font-size: 3rem;
+  }
+
+  .tv-caret-wrapper {
+    display: flex;
+    align-items: center;
+    width: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .table-title {
+    font-size: 1.75rem;
+  }
+
+  .team-view-table-1st-col,
+  .team-view-table-2nd-col {
+    font-size: 1.25rem;
+  }
+
+  .team-view-table-1st-col {
+    padding-left: 1rem;
+  }
+
+  #team-view-2nd-col {
+    margin-left: 6rem;
+  }
+
+  #team-view-coach {
+    padding-top: 0;
+  }
+
+  .formations-wrapper {
+    padding-top: 0.75rem;
+  }
+
+  #team-view-button {
+    justify-content: left;
+  }
 }

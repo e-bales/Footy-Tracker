@@ -7,6 +7,12 @@
   width: 100%;
 }
 
+.col-half {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .nav-col-half {
   display: flex;
   width: 50%;
@@ -37,15 +43,26 @@ header {
   margin-top: 0.6rem;
 }
 
+.team-container {
+  margin: auto;
+  width: 80%;
+  margin-top: 1.5rem;
+}
+
+.tv-row {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 767px) {
-  table {
+  table.main-table {
     width: 100%;
     margin-left: 25%;
     margin-right: 25%;
     font-size: 1rem;
   }
 
-  td {
+  .main-table td {
     margin: 0.1rem 0;
   }
 
@@ -55,5 +72,19 @@ header {
 
   .legend {
     margin-left: 26.2%;
+  }
+
+  .col-half {
+    width: 50%;
+  }
+
+  .team-container {
+    margin: auto;
+    width: 65%;
+    margin-top: 2.5rem;
+  }
+
+  .tv-row {
+    flex-direction: row;
   }
 }
