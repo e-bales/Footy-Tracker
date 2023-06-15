@@ -66,7 +66,7 @@ const positionStringArray = ['Goalkeeper', 'Defender', 'Midfielder', 'Attacker']
 const positionArray = [$goalkeepers, $defenders, $midfielders, $attackers];
 
 // Leader View
-// const $leaderView = document.querySelector('#leader-view');
+const $leaderView = document.querySelector('#leader-view');
 // const $topScorers = document.querySelector('#lv-scorers');
 // const $topAssisters = document.querySelector('#lv-assisters');
 
@@ -274,6 +274,8 @@ $navBarLogo.addEventListener('click', event => {
   restoreNavBar();
   if (data.currPage === $squadView) {
     deleteSquadView();
+  } else if (data.currPage === $leaderView) {
+    deleteLeadersView();
   }
   addHidden(data.currPage); // hide the current page
   removeHidden($leagueView); // show the league view
@@ -458,6 +460,13 @@ function generateLeader(playerObj, playerType) {
   $extraInfo.appendChild($span3);
 
   return $playerBox;
+}
+
+function deleteLeadersView() { // called in NavBar event listener
+  const playerBoxes = document.querySelectorAll('.lv-player-box');
+  for (let i = 0; i < playerBoxes.length; i++) {
+    playerBoxes[i].remove();
+  }
 }
 
 $navBarLeaders.addEventListener('click', event => {
