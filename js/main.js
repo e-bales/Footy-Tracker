@@ -257,6 +257,7 @@ function generateTeamView(response) {
 
 $navBarLogo.addEventListener('click', event => {
   restoreNavBar();
+  $tvManagerImg.setAttribute('src', 'images/manager-placeholder.png');
   addHidden(data.currPage);
   removeHidden($leagueView);
 });
