@@ -462,14 +462,23 @@ th .results {
 }
 
 .league-dropdown-wrapper {
-  /* position: relative; */
-
-  /* width: 2rem;
-  background-color: #0aa538; */
+  margin-bottom: 0.65rem;
+  margin-top: 0.65rem;
 }
 
 #league-dropdown {
-  width: 8rem;
+  width: 10rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+#league-dropdown option {
+  text-align: center;
+}
+
+#league-dropdown option:nth-child(odd) {
   background-color: #f9f9f9;
 }
 

@@ -7,7 +7,7 @@ const $navBarLogo = document.querySelector('#nav-logo');
 const $navBarTitle = document.querySelector('#nav-bar-title');
 // const $navBarTitleWrap = document.querySelector('#nav-bar-title-wrap');
 const $navBarDropdownWrap = document.querySelector('#league-dropdown-wrapper');
-const $navBarCaret = document.querySelector('#nav-bar-caret');
+// const $navBarCaret = document.querySelector('#nav-bar-caret');
 const $navBarLeaders = document.querySelector('#nav-bar-leaders');
 const $englandHead = document.querySelector('#england');
 const $italyHead = document.querySelector('#italy');
@@ -285,15 +285,19 @@ $navBarLogo.addEventListener('click', event => {
 });
 
 function alterNavBar(replacement) { // used for transferring from league view to team view
-  $navBarCaret.classList.add('hidden');
+  // $navBarCaret.classList.add('hidden');
   $navBarLeaders.classList.add('hidden');
+  $navBarDropdownWrap.classList.add('hidden');
+  $navBarTitle.classList.remove('hidden');
   $navBarTitle.textContent = replacement;
 }
 
 function restoreNavBar() {
   $navBarTitle.textContent = titleArray[data.view]; // Premier League, Bundesliga, etc.
-  $navBarCaret.classList.remove('hidden');
+  $navBarTitle.classList.add('hidden');
+  // $navBarCaret.classList.remove('hidden');
   $navBarLeaders.classList.remove('hidden');
+  $navBarDropdownWrap.classList.remove('hidden');
 }
 
 function addHidden(element) {
@@ -512,8 +516,8 @@ $navBarLeaders.addEventListener('click', event => {
 });
 
 // Change Views Functions
-$navBarCaret.addEventListener('click', event => {
-  $navBarTitle.classList.add('hidden');
-  $navBarCaret.classList.add('hidden');
-  $navBarDropdownWrap.classList.remove('hidden');
-});
+// $navBarCaret.addEventListener('click', event => {
+//   $navBarTitle.classList.add('hidden');
+//   $navBarCaret.classList.add('hidden');
+//   $navBarDropdownWrap.classList.remove('hidden');
+// });
