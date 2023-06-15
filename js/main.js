@@ -397,7 +397,6 @@ function generateLeagueLeaders(scorerResponse, assisterResponse) {
 }
 
 function generateLeader(playerObj, playerType) {
-  // console.log('player Obj is: ', playerObj);
   const $playerBox = document.createElement('div');
   $playerBox.classList.add('lv-player-box');
 
@@ -483,20 +482,17 @@ function deleteLeadersView() { // called in NavBar event listener
 }
 
 $navBarLeaders.addEventListener('click', event => {
-  // console.log('clicked league leaders!');
   const xhr1 = new XMLHttpRequest();
   const request = `https://v3.football.api-sports.io/players/topscorers?league=${idArray[data.view]}&season=${season}`;
   const targetUrl = encodeURIComponent(request);
   xhr1.addEventListener('load', event => {
-    // console.log('xhr1 response: ', xhr1.response);
     const xhr2 = new XMLHttpRequest();
     const request2 = `https://v3.football.api-sports.io/players/topassists?league=${idArray[data.view]}&season=${season}`;
     const targetUrl2 = encodeURIComponent(request2);
     xhr2.addEventListener('load', event => {
-      // console.log('xhr2 response: ', xhr2.response);
       generateLeagueLeaders(xhr1.response, xhr2.response);
       addHidden(data.currPage);
-      // alterNavBar
+      alterNavBar('League Leaders');
       removeHidden($leaderView);
     });
     xhr2.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl2);
