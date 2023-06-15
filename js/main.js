@@ -339,11 +339,7 @@ function generatePlayer(playerObject) {
 
   const $playerNumber = document.createElement('h3');
   $playerNumber.classList.add('sv-player-number');
-  if (playerObject.number === null) {
-    $playerNumber.textContent = 0;
-  } else {
-    $playerNumber.textContent = playerObject.number;
-  }
+  $playerNumber.textContent = playerObject.number;
 
   $numberWrap.appendChild($playerNumber);
 
