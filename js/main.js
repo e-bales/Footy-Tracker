@@ -307,7 +307,6 @@ $navBarLogo.addEventListener('click', event => {
 });
 
 function alterNavBar(replacement) { // used for transferring from league view to team view
-  // $navBarCaret.classList.add('hidden');
   $navBarLeaders.classList.add('hidden');
   $navBarDropdownWrap.classList.add('hidden');
   $navBarTitle.classList.remove('hidden');
@@ -317,7 +316,6 @@ function alterNavBar(replacement) { // used for transferring from league view to
 function restoreNavBar() {
   $navBarTitle.textContent = titleArray[data.view]; // Premier League, Bundesliga, etc.
   $navBarTitle.classList.add('hidden');
-  // $navBarCaret.classList.remove('hidden');
   $navBarLeaders.classList.remove('hidden');
   $navBarDropdownWrap.classList.remove('hidden');
 }
