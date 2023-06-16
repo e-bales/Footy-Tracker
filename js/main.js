@@ -5,10 +5,8 @@ const $leagueView = document.querySelector('#league-view');
 const $mainTable = document.querySelector('#main-table');
 const $navBarLogo = document.querySelector('#nav-logo');
 const $navBarTitle = document.querySelector('#nav-bar-title');
-// const $navBarTitleWrap = document.querySelector('#nav-bar-title-wrap');
 const $navBarDropdownWrap = document.querySelector('#league-dropdown-wrapper');
 const $selectDropdown = document.querySelector('#league-dropdown');
-// const $navBarCaret = document.querySelector('#nav-bar-caret');
 const $navBarLeaders = document.querySelector('#nav-bar-leaders');
 const $option0 = document.querySelector('[value="0"]');
 const $option1 = document.querySelector('[value="1"]');
@@ -539,12 +537,6 @@ $navBarLeaders.addEventListener('click', event => {
   xhr1.send();
 });
 
-// Change Views Functions
-// $navBarCaret.addEventListener('click', event => {
-//   $navBarTitle.classList.add('hidden');
-//   $navBarCaret.classList.add('hidden');
-//   $navBarDropdownWrap.classList.remove('hidden');
-// });
 $selectDropdown.addEventListener('change', event => {
   if (Number(event.target.value) !== data.view) {
     const newView = Number(event.target.value);
