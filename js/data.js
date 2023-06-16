@@ -6,11 +6,6 @@ window.addEventListener('beforeunload', event => {
 });
 
 let data = {
-  singleTeam: null,
-  squad: null,
-  top5scorers: null,
-  top5assisters: null,
-  coach: null,
   leaguesArray: [null, null, null, null, null],
   view: 0,
   timeAtUpdate: [0, 0, 0, 0, 0],
