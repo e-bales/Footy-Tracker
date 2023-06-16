@@ -548,7 +548,7 @@ $selectDropdown.addEventListener('change', event => {
         data.leaguesArray[leagueIndex] = standingsXhr.response;
         leagueData = standingsXhr.response;
         data.timeAtUpdate[leagueIndex] = Date.now();
-        if (!headArray[leagueIndex].dataset.generated) {
+        if (headArray[leagueIndex].dataset.generated === 'false') {
           generateBody(leagueData, leagueIndex);
         }
         $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
