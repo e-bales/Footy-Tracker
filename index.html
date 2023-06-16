@@ -20,11 +20,17 @@
           <div class="league-icon-wrapper">
             <img id="nav-logo" src="" alt="league icon" />
           </div>
-          <div class="league-title-wrapper">
-            <p id="nav-bar-title">Premier League</p>
+          <div id="nav-bar-title-wrap" class="league-title-wrapper">
+            <p id="nav-bar-title" class="hidden">Premier League</p>
           </div>
-          <div class="caret-wrapper">
-            <img id="nav-bar-caret" src="images/caret-down-solid.svg" alt="down caret">
+          <div id="league-dropdown-wrapper" class="league-dropdown-wrapper">
+            <select name="league" id="league-dropdown">
+              <option value="0" selected>Premier League</option>
+              <option value="1">Serie A</option>
+              <option value="2">Bundesliga</option>
+              <option value="3">La Liga</option>
+              <option value="4">Ligue 1</option>
+            </select>
           </div>
         </div>
         <div class="nav-col-half" id="second">
@@ -173,7 +179,7 @@
                 <th id="last-header" class="results">GD</th>
               </tr>
             </thead>
-            <tbody id="england" data-league="0">
+            <tbody class="hidden" id="england" data-league="0" data-generated="false">
             </tbody>
             <tbody class="hidden" id="italy" data-league="1" data-generated="false">
             </tbody>

@@ -5,8 +5,16 @@ const $leagueView = document.querySelector('#league-view');
 const $mainTable = document.querySelector('#main-table');
 const $navBarLogo = document.querySelector('#nav-logo');
 const $navBarTitle = document.querySelector('#nav-bar-title');
-const $navBarCaret = document.querySelector('#nav-bar-caret');
+const $navBarDropdownWrap = document.querySelector('#league-dropdown-wrapper');
+const $selectDropdown = document.querySelector('#league-dropdown');
 const $navBarLeaders = document.querySelector('#nav-bar-leaders');
+const $option0 = document.querySelector('[value="0"]');
+const $option1 = document.querySelector('[value="1"]');
+const $option2 = document.querySelector('[value="2"]');
+const $option3 = document.querySelector('[value="3"]');
+const $option4 = document.querySelector('[value="4"]');
+const optionArray = [$option0, $option1, $option2, $option3, $option4];
+
 const $englandHead = document.querySelector('#england');
 const $italyHead = document.querySelector('#italy');
 const $germanyHead = document.querySelector('#germany');
@@ -81,6 +89,9 @@ window.addEventListener('load', event => {
       data.leaguesArray[leagueIndex] = standingsXhr.response;
       leagueData = standingsXhr.response;
       data.timeAtUpdate[leagueIndex] = Date.now();
+      generateBody(leagueData, leagueIndex);
+      headArray[leagueIndex].dataset.generated = 'true';
+      $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
     });
     const standingsString = `https://v3.football.api-sports.io/standings?league=${idArray[leagueIndex]}&season=${season}`;
     const targetUrl = encodeURIComponent(standingsString);
@@ -91,13 +102,27 @@ window.addEventListener('load', event => {
     standingsXhr.send();
   } else {
     leagueData = data.leaguesArray[leagueIndex];
+    generateBody(leagueData, leagueIndex);
+    headArray[leagueIndex].dataset.generated = 'true';
+    $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
   }
-  generateBody(leagueData, leagueIndex);
-  $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
+  headArray[leagueIndex].dataset.generated = 'true';
+  headArray[leagueIndex].classList.remove('hidden');
+  swapDropdownDefault(leagueIndex);
 });
 
+function swapDropdownDefault(value) {
+  for (let i = 0; i < optionArray.length; i++) {
+
+    if (i === value) {
+      optionArray[i].selected = true;
+    } else {
+      optionArray[i].selected = false;
+    }
+  }
+}
+
 function generateBody(leagueData, leagueIndex) {
-  leagueIndex = 0;
   const $tableHead = headArray[leagueIndex]; // change this to be any one of the heads for feature 5
   const leagueStandings = leagueData.response[0].league.standings[0];
   for (let i = 0; i < leagueStandings.length; i++) {
@@ -282,15 +307,17 @@ $navBarLogo.addEventListener('click', event => {
 });
 
 function alterNavBar(replacement) { // used for transferring from league view to team view
-  $navBarCaret.classList.add('hidden');
   $navBarLeaders.classList.add('hidden');
+  $navBarDropdownWrap.classList.add('hidden');
+  $navBarTitle.classList.remove('hidden');
   $navBarTitle.textContent = replacement;
 }
 
 function restoreNavBar() {
   $navBarTitle.textContent = titleArray[data.view]; // Premier League, Bundesliga, etc.
-  $navBarCaret.classList.remove('hidden');
+  $navBarTitle.classList.add('hidden');
   $navBarLeaders.classList.remove('hidden');
+  $navBarDropdownWrap.classList.remove('hidden');
 }
 
 function addHidden(element) {
@@ -506,4 +533,47 @@ $navBarLeaders.addEventListener('click', event => {
   xhr1.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
   xhr1.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
   xhr1.send();
+});
+
+$selectDropdown.addEventListener('change', event => {
+  if (Number(event.target.value) !== data.view) {
+    const newView = Number(event.target.value);
+    const previousView = data.view;
+    data.view = newView;
+    let leagueData;
+    const leagueIndex = data.view;
+    if (data.leaguesArray[leagueIndex] === null || (Date.now() - data.timeAtUpdate[leagueIndex] > twentyFourHours)) {
+      const standingsXhr = new XMLHttpRequest();
+      standingsXhr.addEventListener('load', event => {
+        data.leaguesArray[leagueIndex] = standingsXhr.response;
+        leagueData = standingsXhr.response;
+        data.timeAtUpdate[leagueIndex] = Date.now();
+        if (!headArray[leagueIndex].dataset.generated) {
+          generateBody(leagueData, leagueIndex);
+        }
+        $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
+        headArray[previousView].classList.add('hidden');
+        headArray[leagueIndex].dataset.generated = 'true';
+        headArray[leagueIndex].classList.remove('hidden');
+        $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
+      });
+      const standingsString = `https://v3.football.api-sports.io/standings?league=${idArray[leagueIndex]}&season=${season}`;
+      const targetUrl = encodeURIComponent(standingsString);
+      standingsXhr.open('GET', 'https://lfz-cors.herokuapp.com/?url=' + targetUrl);
+      standingsXhr.responseType = 'json';
+      standingsXhr.setRequestHeader('x-rapidapi-key', 'f879ddeaf6bd32942b418d19c8763311');
+      standingsXhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+      standingsXhr.send();
+    } else {
+      leagueData = data.leaguesArray[leagueIndex];
+      if (headArray[leagueIndex].dataset.generated === 'false') {
+        generateBody(leagueData, leagueIndex);
+      }
+      headArray[previousView].classList.add('hidden');
+      headArray[leagueIndex].dataset.generated = 'true';
+      headArray[leagueIndex].classList.remove('hidden');
+      $navBarLogo.setAttribute('src', leagueData.response[0].league.logo);
+    }
+
+  }
 });
