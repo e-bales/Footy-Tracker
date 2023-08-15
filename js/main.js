@@ -1,4 +1,4 @@
-const season = 2022;
+const season = 2023;
 const twentyFourHours = 86400000;
 // League View
 const $leagueView = document.querySelector('#league-view');
